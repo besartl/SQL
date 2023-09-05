@@ -1,0 +1,32 @@
+--create a clothing store database 
+
+CREATE TABLE clothing_store (id INTEGER PRIMARY KEY, item TEXT, style TEXT, color TEXT, price_$ INTEGER, sold INTEGER);
+
+INSERT INTO clothing_store VALUES (1, "T-shirt", "Men", "white", 21, 13 );
+INSERT INTO clothing_store VALUES (2, "T-shirt", "Men", "red", 23, 6 );
+INSERT INTO clothing_store VALUES (3, "T-shirt", "Men", " blue", 23, 5 );
+INSERT INTO clothing_store VALUES (4, "T-shirt", "Men", "black", 22, 12 );
+INSERT INTO clothing_store VALUES (5, "T-shirt", "Women", "white", 21, 27 );
+INSERT INTO clothing_store VALUES (6, "T-shirt", "Women", "red", 23, 29 );
+INSERT INTO clothing_store VALUES (7, "T-shirt", "Women", "blue", 23, 31 );
+INSERT INTO clothing_store VALUES (8, "T-shirt", "Women", "black", 22, 35 );
+INSERT INTO clothing_store VALUES (9, "Pants", "Men", "white", 41, 15 );
+INSERT INTO clothing_store VALUES (10, "Pants", "Men", "red", 44, 5 );
+INSERT INTO clothing_store VALUES (11, "Pants", "Men", "blue", 44, 7 );
+INSERT INTO clothing_store VALUES (12, "Pants", "Men", "black", 42, 20 );
+INSERT INTO clothing_store VALUES (13, "Skirt", "Women", "white", 41, 29 );
+INSERT INTO clothing_store VALUES (14, "Skirt", "Women", "red", 44, 33 );
+INSERT INTO clothing_store VALUES (15, "Skirt", "Women", "blue", 44, 31 );
+INSERT INTO clothing_store VALUES (16, "Skirt", "Women", "black", 42, 40 );
+
+==Disp;ay the database ordered by price
+SELECT * FROM clothing_store WHERE price_$ > 0 ORDER BY price_$ ;
+
+==What style sold the most ?
+SELECT style, SUM(sold) FROM clothing_store GROUP BY style;
+
+--What is the total of sold items ?
+SELECT SUM(sold) FROM clothing_store;
+
+==What are the 5 most items sold ?
+SELECT item, color, style, sold FROM clothing_store ORDER BY sold desc limit 5;
