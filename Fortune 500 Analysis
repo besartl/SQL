@@ -1,0 +1,23 @@
+SELECT company_name,
+CASE 
+  WHEN paid_time_off_days >= 20 THEN 'PTO friendly workplace'
+  WHEN paid_time_off_days >= 15 THEN 'acceptable'
+  ELSE 'not good PTO'
+END as PTO_type
+FROM fortune_companies
+WHERE industry='Energy';
+
+SELECT industry, 
+SUM(employees) as total_workforce
+FROM fortune_companies
+GROUP BY industry
+HAVING total_workforce>=100000;
+
+SELECT company_name
+FROM fortune_companies
+WHERE industry='Financials'
+AND maternity_leave_weeks>=8;
+
+SELECT company_name, min(revenue)
+FROM fortune_companies
+WHERE industry = 'Technology';
