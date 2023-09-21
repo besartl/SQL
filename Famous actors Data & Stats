@@ -1,0 +1,53 @@
+# create a table of famous actors
+
+CREATE TABLE famous_actors
+(id INTEGER PRIMARY KEY, name TEXT, age INTEGER);
+
+INSERT INTO famous_actors VALUES (1, 'Leonardo DiCaprio', 48);
+INSERT INTO famous_actors VALUES (2, 'Robert Downey jr', 58);
+INSERT INTO famous_actors VALUES (3, 'Sandra Bullock', 59);
+INSERT INTO famous_actors VALUES (4, 'Smauel L. Jackson', 74);
+INSERT INTO famous_actors VALUES (5, 'Jenifer Lawrence', 33);
+
+
+# create a table of movies
+
+CREATE TABLE movies
+(id INTEGER PRIMARY KEY, title TEXT, actor_id INTEGER);
+INSERT INTO movies VALUES (1, 'The Hunger Games', 5);
+INSERT INTO movies VALUES (2, 'The Revenant', 1);
+INSERT INTO movies VALUES (3, 'Pulp Fiction', 4);
+INSERT INTO movies VALUES (4, 'Bird Box', 3);
+INSERT INTO movies VALUES (5, 'Iron Man', 2);
+
+
+# create a table of oscars
+
+CREATE TABLE oscars
+(id INTEGER PRIMARY KEY, actor_id INTEGER, total_oscars INTEGER, total_nomanations INTEGER);
+INSERT INTO oscars VALUES (1, 4, NULL, 1);
+INSERT INTO oscars VALUES (2, 1, 1, 7);
+INSERT INTO oscars VALUES (3, 2, NULL, 2);
+INSERT INTO oscars VALUES (4, 5, 1, 4);
+INSERT INTO oscars VALUES (5, 3, 1, 2);
+
+# Analysis
+
+# Which actor acted in which movie ?
+SELECT famous_actors.name, movies.title
+FROM movies
+    JOIN famous_actors
+    ON movies.actor_id = famous_actors.id;
+
+# How many nomanations did each actor get ?
+SELECT famous_actors.name, oscars.total_nomanations
+FROM famous_actors
+  JOIN oscars
+  ON oscars.actor_id = famous_actors.id;
+
+# Show only the actors with an oscars and the total 
+SELECT famous_actors.name, oscars.total_oscars
+FROM oscars
+  JOIN famous_actors
+  ON oscars.actor_id = famous_actors.id
+  AND oscars.total_oscars IS NOT NULL;
