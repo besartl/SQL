@@ -27,3 +27,80 @@ time_signature integer NOT NULL
 -- Then I inserted the Spotify Data .csv into the table.
 
 -- Next, I explored the data using the following SQL. 
+
+
+#1. Which artist has the highest average popularity for their tracks?
+
+SELECT artist_name, AVG(popularity) AS avg_popularity
+FROM Spotifydata
+GROUP BY artist_name
+ORDER BY avg_popularity DESC
+LIMIT 1;
+
+
+#2. What is the distribution of danceability scores across all tracks in the dataset?
+
+SELECT danceability, COUNT(*) AS track_count
+FROM Spotifydata
+GROUP BY danceability
+ORDER BY danceability;
+
+
+#3. Identify the top 5 tracks with the highest energy levels.
+
+SELECT track_name, energy
+FROM Spotifydata
+ORDER BY energy DESC
+LIMIT 5;
+
+
+#4. What is the most common key for songs in the dataset?
+
+SELECT song_key, COUNT(*) AS key_count
+FROM Spotifydata
+GROUP BY song_key
+ORDER BY key_count DESC
+LIMIT 1;
+
+
+#5. Is there a correlation between loudness and popularity?
+
+SELECT AVG(loudness) AS avg_loudness, AVG(popularity) AS avg_popularity
+FROM Spotifydata;
+
+
+#6. Identify the track with the lowest acousticness.
+
+SELECT track_name, acousticness
+FROM Spotifydata
+ORDER BY acousticness
+LIMIT 1;
+
+
+#7. What is the average duration of songs in the dataset?
+
+SELECT AVG(duration_ms) AS avg_duration
+FROM Spotifydata;
+
+
+#8. Can you find the tempo range (minimum and maximum) for the songs?
+
+SELECT MIN(tempo) AS min_tempo, MAX(tempo) AS max_tempo
+FROM Spotifydata;
+
+
+#9. Are there any trends or patterns in the distribution of valence scores?
+
+SELECT valence, COUNT(*) AS valence_count
+FROM Spotifydata
+GROUP BY valence
+ORDER BY valence;
+
+
+#10. How many unique time signatures are present in the dataset, and what are they?
+
+SELECT DISTINCT time_signature
+FROM Spotifydata;
+
+
+
