@@ -19,14 +19,31 @@ INSERT INTO clothing_store VALUES (14, "Skirt", "Women", "red", 44, 33 );
 INSERT INTO clothing_store VALUES (15, "Skirt", "Women", "blue", 44, 31 );
 INSERT INTO clothing_store VALUES (16, "Skirt", "Women", "black", 42, 40 );
 
-==Disp;ay the database ordered by price
-SELECT * FROM clothing_store WHERE price_$ > 0 ORDER BY price_$ ;
+/* Analysis */
 
-==What style sold the most ?
-SELECT style, SUM(sold) FROM clothing_store GROUP BY style;
+#1. Disp;ay the database ordered by price
 
---What is the total of sold items ?
-SELECT SUM(sold) FROM clothing_store;
+SELECT * 
+FROM clothing_store 
+WHERE price_$ > 0 
+ORDER BY price_$ ;
 
-==What are the 5 most items sold ?
-SELECT item, color, style, sold FROM clothing_store ORDER BY sold desc limit 5;
+
+#2. What style sold the most ?
+
+SELECT style, SUM(sold) 
+FROM clothing_store 
+GROUP BY style;
+
+
+#3. What is the total of sold items ?
+
+SELECT SUM(sold) 
+FROM clothing_store;
+
+
+#4. What are the 5 most items sold ?
+
+SELECT item, sold 
+FROM clothing_store 
+ORDER BY sold desc limit 5;
