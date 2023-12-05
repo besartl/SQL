@@ -9,24 +9,28 @@ INSERT INTO membership (name, type, price) VALUES ("Kelly", 'Bronze', 50);
 
 /* ANALYSIS */
 
+#1. Show me the data !
+
 SELECT *
 FROM membership;
 
 
-/* Kelly has now upgraded to platinum membership */
+#2. Kelly has now upgraded to platinum membership
 
 UPDATE membership
 SET type = 'platinum', price = 125
 WHERE id = 4;
 
+-- showing updated data
 SELECT *
 FROM membership;
 
 
-/* Mark is no longer a member */
+#3. Mark is no longer a member 
 
 DELETE FROM membership
 WHERE id = 2;
 
+-- shoeing updated data
 SELECT * 
 FROM membership;
