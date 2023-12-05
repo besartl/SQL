@@ -88,6 +88,7 @@ FROM fortune_companies
 WHERE industry='Financials'
 AND maternity_leave_weeks > = 8;
 
+
 #4. What technology company has the lowest revenue ?
 
 SELECT company_name, revenue
