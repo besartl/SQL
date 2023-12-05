@@ -1,4 +1,4 @@
-#This project utilizes the follow Superstore data:
+-- This project utilizes the follow Superstore data:
 
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
@@ -27,21 +27,29 @@ VALUES
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
+/* ANALYSIS */
 
-#Use a SELECT statement to order the items by price.
+#1. Use a SELECT statement to order the items by price.
+
 SELECT item_name, price
 FROM superstore
 ORDER BY price desc;
 
-#Show a statistic about the item prices.
+
+#2. Show a statistic about the item prices.
+
 SELECT item_name, MAX(price)
 FROM superstore;
 
-#Show a statistic about the price for items in the category of "Kitchen Supplies".
+
+#3. Show a statistic about the price for items in the category of "Kitchen Supplies".
+
 SELECT item_name, MIN(price)
 FROM superstore
 WHERE category="Kitchen Supplies";
 
-#What is the higest rated item ?
+
+#4. What is the higest rated item ?
+
 SElECT item_name, MAX(average_rating)
 FROM superstore;
