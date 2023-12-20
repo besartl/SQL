@@ -6,7 +6,8 @@
 
 SELECT Customerid, Firstname, lastname, country
 FROM chinook.customers
-WHERE country NOT IN('USA');
+WHERE country NOT IN('USA')
+GROUP BY Customerid;
 
 
 #2.What are the total sales for 2009?
